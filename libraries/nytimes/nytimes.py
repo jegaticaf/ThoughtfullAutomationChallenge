@@ -87,7 +87,7 @@ class Nytimes():
             if last_article_date > search_date:
                 time.sleep(5)
                 try:
-                    act_on_element('//button[text()= "ACCEPT"]', "click_element", 2)
+                    act_on_element('//button[text()= "ACCEPT"]', "click_element")
                 except:
                     log_message("There was no pop-up message to close")
                 act_on_element('//button[@data-testid="search-show-more-button"]', "click_element")
