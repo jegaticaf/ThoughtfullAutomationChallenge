@@ -1,3 +1,6 @@
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 from libraries.common import log_message, act_on_element, files, convert_string_to_date
 from config import OUTPUT_FOLDER, search_phrase, month_number, news_section, tabs_dict
 import time
