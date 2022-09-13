@@ -77,10 +77,10 @@ class Nytimes():
         #Checks if the last article is in the desired timeframe
         #If it is then clicks the button to search for more articles, until it finds one that isn't
         data_range = True
-        try:
-            act_on_element('//button[child::div[text()= "ACCEPT"]]', "click_element", 2)
-        except:
-            log_message("There was no pop-up message to close")
+        #try:
+        #    act_on_element('//button[child::div[text()= "ACCEPT"]]', "click_element", 2)
+        #except:
+        #    log_message("There was no pop-up message to close")
 
         while data_range:
 
