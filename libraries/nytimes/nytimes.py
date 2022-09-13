@@ -94,7 +94,7 @@ class Nytimes():
             else:
                 data_range = False
 
-        html = browser.page_source
+        html = self.browser.page_source
 
         soup = BeautifulSoup(html, "lxml")
         print(soup)
