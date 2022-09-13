@@ -55,7 +55,7 @@ class Nytimes():
         act_on_element('//option[@value="newest"]', "click_element")
 
         #This is to give it time to the website to load with the new filters
-        time.sleep(5)
+        time.sleep(7)
 
         log_message("End - Set the Filters")
 
@@ -83,8 +83,8 @@ class Nytimes():
             last_article_date = convert_string_to_date(articles_data[-1].text)
 
             if last_article_date > search_date:
-                act_on_element('//button[@data-testid="search-show-more-button"]', "click_element")
                 time.sleep(5)
+                act_on_element('//button[@data-testid="search-show-more-button"]', "click_element")
             else:
                 data_range = False
 
