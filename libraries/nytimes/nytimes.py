@@ -84,7 +84,7 @@ class Nytimes():
 
             if last_article_date > search_date:
                 act_on_element('//button[@data-testid="search-show-more-button"]', "click_element")
-                time.sleep(3)
+                time.sleep(5)
             else:
                 data_range = False
 
