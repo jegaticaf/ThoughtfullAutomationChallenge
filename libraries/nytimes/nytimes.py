@@ -93,7 +93,7 @@ class Nytimes():
                 act_on_element('//button[@data-testid="search-show-more-button"]', "click_element")
             else:
                 data_range = False
-
+        self.browser = webdriver.Chrome(service= Service(ChromeDriverManager().install()))
         html = self.browser.page_source
 
         soup = BeautifulSoup(html, "lxml")
