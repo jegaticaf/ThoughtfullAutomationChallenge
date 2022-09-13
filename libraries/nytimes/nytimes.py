@@ -55,7 +55,7 @@ class Nytimes():
         act_on_element('//option[@value="newest"]', "click_element")
 
         #This is to give it time to the website to load with the new filters
-        time.sleep(3)
+        time.sleep(5)
 
         log_message("End - Set the Filters")
 
