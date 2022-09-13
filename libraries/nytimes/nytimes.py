@@ -83,7 +83,7 @@ class Nytimes():
             last_article_date = convert_string_to_date(articles_data[-1].text)
 
             if last_article_date > search_date:
-                time.sleep(5)
+                time.sleep(7)
                 act_on_element('//button[@data-testid="search-show-more-button"]', "click_element")
             else:
                 data_range = False
