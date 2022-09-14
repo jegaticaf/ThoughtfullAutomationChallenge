@@ -77,7 +77,7 @@ class Nytimes():
             search_date = search_date - timedelta(days=datetime.now().day)
 
         try:
-            print(act_on_element('//body//div[descendant::text()="ACCEPT"]', "find_element").text)
+            print(act_on_element('//body//span[descendant::text()="ACCEPT"]', "find_element").text)
         except:
             log_message("Didn't find pop-up")
 
