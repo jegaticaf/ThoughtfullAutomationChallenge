@@ -76,7 +76,7 @@ class Nytimes():
         try:
             divs_on_website = act_on_element('//body/div/div', "find_elements")
             selected_div = divs_on_website[-1]
-            for index, div in enumerate(selected div, start=1):
+            for index, div in enumerate(selected_div, start=1):
                 print("div",index)
                 print(div.text)
             log_message("It's in a p")
