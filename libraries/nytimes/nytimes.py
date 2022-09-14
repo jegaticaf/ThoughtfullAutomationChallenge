@@ -101,16 +101,16 @@ class Nytimes():
                 
         #Once it has loaded all the news in the given timeframe, checks the date individually
         #Appends all the articles that are between that timeframe
-        size = 0
-        while size <1:
-            time.sleep(1)
-            all_articles = act_on_element('//ol[@data-testid="search-results"]/li[@data-testid]', "find_elements")
-            size = len(all_articles)
+        all_articles = act_on_element('//ol[@data-testid="search-results"]/li[@data-testid]', "find_elements")
+        size = len(all_articles)
         print(size)
+        
         articles_processed = 0
         continue_appending = True
         while size > articles_processed and continue_appending:
-            article_date_text = all_articles[articles_processed].find_element_by_xpath('.//span[@data-testid="todays-date"]').text
+            current_article = all_articles[articles_processed]
+            print(current_article)
+            article_date_text = current_article.find_element_by_xpath('.//span[@data-testid="todays-date"]').text
             article_date_elements = article_date_text.split(" ")
             
             if article_date_elements[1] == "ago":
