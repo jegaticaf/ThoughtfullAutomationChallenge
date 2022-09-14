@@ -51,7 +51,17 @@ class Nytimes():
         except Exception as e:
             log_message("Couldn't find Section '{}'. Filtered by 'Any'".format(news_section))
             act_on_element('//ul[@tabindex=-1]//label[descendant::text()="Any"]/input', "click_element")
-        
+
+        try:
+            hide_button = act_on_element('//button[@data-testid="expanded-dock-btn-selector"]', "find_element")
+            act_on_element(hide_button, "click_element")
+            log_message("Clicked the button, in theory")
+            act_on_element('//button[@data-testid="GDPR-accept"]', "click_element")
+            log_message("Clicked the accept button, just in case")
+            time.sleep(5)
+        except:
+            log_message("Didn't find the pop-up")   
+            
         act_on_element('//select[@data-testid="SearchForm-sortBy"]', "click_element")
         act_on_element('//option[@value="newest"]', "click_element")
 
@@ -87,18 +97,7 @@ class Nytimes():
                 time.sleep(5)
                 act_on_element('//button[@data-testid="search-show-more-button"]', "click_element")
             else:
-                data_range = False
-
-        try:
-            hide_button = act_on_element('//button[@data-testid="expanded-dock-btn-selector"]', "find_element")
-            act_on_element(hide_button, "click_element")
-            log_message("Clicked the button, in theory")
-            time.wait(5)
-            act_on_element('//button[@data-testid="GDPR-accept"]', "click_element")
-            log_message("Clicked the accept button, just in case")
-            time.wait(5)
-        except:
-            log_message("Didn't find the pop-up")       
+                data_range = False    
                 
         #Once it has loaded all the news in the given timeframe, checks the date individually
         #Appends all the articles that are between that timeframe
