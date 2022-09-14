@@ -48,6 +48,7 @@ class Nytimes():
             act_on_element('//ul[@tabindex=-1]//label[descendant::text()="{}"]/input'.format(news_section), "find_element")
             act_on_element('//ul[@tabindex=-1]//label[descendant::text()="{}"]/input'.format(news_section), "click_element")
             log_message("Filtered the news by Section '{}'".format(news_section))
+            time.sleep(5)
         except Exception as e:
             log_message("Couldn't find Section '{}'. Filtered by 'Any'".format(news_section))
             act_on_element('//ul[@tabindex=-1]//label[descendant::text()="Any"]/input', "click_element")
