@@ -108,7 +108,7 @@ class Nytimes():
         articles_processed = 0
         continue_appending = True
         while size > articles_processed and continue_appending:
-            article_date_text = all_articles[articles_processed].find_element(By.xpath,'.//span[@data-testid="todays-date"]').text
+            article_date_text = all_articles[articles_processed].find_element(By.XPATH,'.//span[@data-testid="todays-date"]').text
             article_date_elements = article_date_text.split(" ")
             
             if article_date_elements[1] == "ago":
@@ -135,16 +135,16 @@ class Nytimes():
         #With the articles found with the last method, grabs all the information of each new
         for article_container in self.articles_container:
             self.browser.switch_window(locator = self.browser.get_window_handles()[tabs_dict["NY Times"]])
-            article_title = article_container.find_element(By.xpath,'.//h4').text
-            article_date = article_container.find_element(By.xpath,'.//span[@data-testid="todays-date"]').text
+            article_title = article_container.find_element(By.XPATH,'.//h4').text
+            article_date = article_container.find_element(By.XPATH,'.//span[@data-testid="todays-date"]').text
             article_description = ""
             try:
-                article_description = article_container.find_element(by.xpath,'.//a/p').text
+                article_description = article_container.find_element(By.XPATH,'.//a/p').text
             except Exception as e:
                 log_message("Article {} has no description".format(article_title))
             
             try:
-                article_image = article_container.find_element(By.xpath,'.//img').get_attribute("src")
+                article_image = article_container.find_element(By.XPATH,'.//img').get_attribute("src")
             except Exception as e:
                 log_message("Article {} has no image".format(article_title))
                 article_image = ""                       
