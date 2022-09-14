@@ -90,12 +90,12 @@ class Nytimes():
                 data_range = False
 
         try:
-            accept_button = act_on_element('//button[@data-testid="expanded-dock-btn-selector"]', "find_element")
-            act_on_element(accept_button, "click_element")
+            hide_button = act_on_element('//button[@data-testid="expanded-dock-btn-selector"]', "find_element")
+            act_on_element(hide_button, "click_element")
             log_message("Clicked the button, in theory")
             time.wait(5)
-            act_on_element(accept_button, "click_element")
-            log_message("Clicked the button again, just in case")
+            act_on_element('//button[@data-testid="GDPR-accept"]', "click_element")
+            log_message("Clicked the accept button, just in case")
             time.wait(5)
         except:
             log_message("Didn't find the pop-up")       
