@@ -77,7 +77,7 @@ class Nytimes():
             search_date = search_date - timedelta(days=datetime.now().day)
 
         try:
-            act_on_element('//body//button', "click_element")
+            print(act_on_element('//body//a', "find_element").text)
         except:
             log_message("Didn't find pop-up")
 
