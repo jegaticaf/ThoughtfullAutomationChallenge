@@ -106,7 +106,7 @@ class Nytimes():
             time.sleep(1)
             all_articles = act_on_element('//ol[@data-testid="search-results"]/li[@data-testid]', "find_elements")
             size = len(all_articles)
-        
+        print(size)
         articles_processed = 0
         continue_appending = True
         while size > articles_processed and continue_appending:
