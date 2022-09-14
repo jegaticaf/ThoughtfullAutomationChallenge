@@ -32,6 +32,7 @@ class Nytimes():
         search_bar = act_on_element('//input[@data-testid = "search-input"]', "find_element")
         self.browser.input_text_when_element_is_visible('//input[@data-testid = "search-input"]', search_phrase)
         search_bar.send_keys(Keys.ENTER) 
+        time.sleep(5)
         log_message("End - Initial Search of '{}'".format(search_phrase))   
 
     def filter_page(self):
