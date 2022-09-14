@@ -74,11 +74,11 @@ class Nytimes():
             search_date = search_date - timedelta(days=datetime.now().day)
 
         try:
-            divs_on_website = act_on_element('//body/div', "find_elements")
+            divs_on_website = act_on_element('//body/div/div', "find_elements")
             for index, div in enumerate(divs_on_website, start=1):
                 print("Div",index)
                 print(div.text)
-            log_message("It's in a body")
+            log_message("It's in a div")
         except:
             log_message("Didn't find pop-up")
 
