@@ -89,6 +89,9 @@ class Nytimes():
             else:
                 data_range = False
 
+        html = act_on_element('//body/div', "find_element").get_attribute("innerHTML")
+        print(html)        
+                
         #Once it has loaded all the news in the given timeframe, checks the date individually
         #Appends all the articles that are between that timeframe
         all_articles = act_on_element('//ol[@data-testid="search-results"]/li[@data-testid]', "find_elements")
