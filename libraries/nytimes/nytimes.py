@@ -93,6 +93,9 @@ class Nytimes():
             accept_button = act_on_element('//button[@data-testid="expanded-dock-btn-selector"]', "find_element")
             act_on_element(accept_button, "click_element")
             log_message("Clicked the button, in theory")
+            time.wait(1)
+            act_on_element(accept_button, "click_element")
+            log_message("Clicked the button again, just in case")
             time.wait(5)
         except:
             log_message("Didn't find the pop-up")       
