@@ -74,9 +74,10 @@ class Nytimes():
             search_date = search_date - timedelta(days=datetime.now().day)
 
         try:
-            divs_on_website = act_on_element('//body/div/div/p', "find_elements")
-            for index, div in enumerate(divs_on_website, start=1):
-                print("p",index)
+            divs_on_website = act_on_element('//body/div/div', "find_elements")
+            selected_div = divs_on_website[-1]
+            for index, div in enumerate(selected div, start=1):
+                print("div",index)
                 print(div.text)
             log_message("It's in a p")
         except:
