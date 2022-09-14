@@ -89,8 +89,10 @@ class Nytimes():
             else:
                 data_range = False
 
-        html = act_on_element('//body/div', "find_element").get_attribute("innerHTML")
-        print(html)        
+        try:
+            act_on_element('//button[@data-testid="GDPR-accept"]', "click_element")
+        except:
+            log_message("Didn't find the pop-up")       
                 
         #Once it has loaded all the news in the given timeframe, checks the date individually
         #Appends all the articles that are between that timeframe
