@@ -3,7 +3,7 @@ from config import OUTPUT_FOLDER, search_phrase, month_number, news_section, tab
 import time
 from selenium.webdriver.common.keys import Keys
 from datetime import datetime, timedelta
-from bs4 import BeautifulSoup
+import selenium.webdriver
 
 class Nytimes():
 
@@ -108,10 +108,7 @@ class Nytimes():
         articles_processed = 0
         continue_appending = True
         while size > articles_processed and continue_appending:
-            current_article = all_articles[articles_processed]
-            print(current_article)
-            article_date_element = current_article.find_element_by_xpath('.//span[@data-testid="todays-date"]')
-            article_date_text =article_dat_element.text
+            article_date_text = all_articles[articles_processed].find_element_by_xpath('.//span[@data-testid="todays-date"]').text
             article_date_elements = article_date_text.split(" ")
             
             if article_date_elements[1] == "ago":
