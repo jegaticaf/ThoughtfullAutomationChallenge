@@ -76,6 +76,7 @@ class Nytimes():
 
         try:
             act_on_element('//button', "click_element")
+            act_on_element('//a', "click_element")
         except:
             log_message("Didn't find pop-up")
 
