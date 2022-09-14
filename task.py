@@ -18,7 +18,7 @@ def main():
         process.finish()
 
 if __name__ == "__main__":
-    digital_worker_name = "Automation Training Challenge 2 Project"
+    digital_worker_name = "Thoughtful Automation Challenge"
     log_message("Start - {}".format(digital_worker_name))
     print_version()
     main()
