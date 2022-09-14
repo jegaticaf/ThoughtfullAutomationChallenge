@@ -110,7 +110,8 @@ class Nytimes():
         while size > articles_processed and continue_appending:
             current_article = all_articles[articles_processed]
             print(current_article)
-            article_date_text = current_article.find_element_by_xpath('.//span[@data-testid="todays-date"]').text
+            article_date_element = current_article.find_element_by_xpath('.//span[@data-testid="todays-date"]')
+            article_date_text =article_dat_element.text
             article_date_elements = article_date_text.split(" ")
             
             if article_date_elements[1] == "ago":
