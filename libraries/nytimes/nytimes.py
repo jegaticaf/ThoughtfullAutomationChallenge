@@ -75,7 +75,7 @@ class Nytimes():
             search_date = search_date - timedelta(days=datetime.now().day)
 
         try:
-            act_on_element('//div[@id="gateway-content"]//button', "click_element")
+            act_on_element('//button', "click_element")
         except:
             log_message("Didn't find pop-up")
 
