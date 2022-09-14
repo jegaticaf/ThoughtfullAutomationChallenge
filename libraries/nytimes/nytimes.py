@@ -75,7 +75,7 @@ class Nytimes():
 
         try:
             divs_on_website = act_on_element('//body/div', "find_elements")
-            for index, div on enumerate(divs_on_website, start=1):
+            for index, div in enumerate(divs_on_website, start=1):
                 print("Div",index)
                 print(div.text)
             log_message("It's in a body")
