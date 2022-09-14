@@ -74,7 +74,7 @@ class Nytimes():
             search_date = search_date - timedelta(days=datetime.now().day)
 
         try:
-            print(act_on_element('//body[descendant::contains(text(),"accept")]', "find_element").text)
+            print(act_on_element('//body[descendant::contains(text(),"Accept")]', "find_element").text)
             log_message("It's in a body")
         except:
             log_message("Didn't find pop-up")
