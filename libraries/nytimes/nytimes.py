@@ -58,7 +58,7 @@ class Nytimes():
             log_message("Clicked the button, in theory")
             act_on_element('//button[@data-testid="GDPR-accept"]', "click_element")
             log_message("Clicked the accept button, just in case")
-            time.sleep(5)
+            time.sleep(3)
         except:
             log_message("Didn't find the pop-up")   
             
@@ -66,7 +66,7 @@ class Nytimes():
         act_on_element('//option[@value="newest"]', "click_element")
 
         #This is to give it time to the website to load with the new filters
-        time.sleep(5)
+        time.sleep(3)
 
         log_message("End - Set the Filters")
 
@@ -103,7 +103,6 @@ class Nytimes():
         #Appends all the articles that are between that timeframe
         all_articles = act_on_element('//ol[@data-testid="search-results"]/li[@data-testid]', "find_elements")
         size = len(all_articles)
-        print(size)
         
         articles_processed = 0
         continue_appending = True
