@@ -91,6 +91,7 @@ class Nytimes():
 
         try:
             act_on_element('//button[@data-testid="GDPR-accept"]', "click_element")
+            log_message("Clicked the button, in theory")
         except:
             log_message("Didn't find the pop-up")       
                 
