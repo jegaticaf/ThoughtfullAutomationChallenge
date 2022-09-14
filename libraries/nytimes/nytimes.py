@@ -3,7 +3,6 @@ from config import OUTPUT_FOLDER, search_phrase, month_number, news_section, tab
 import time
 from selenium.webdriver.common.keys import Keys
 from datetime import datetime, timedelta
-from bs4 import BeautifulSoup
 
 class Nytimes():
 
@@ -75,7 +74,7 @@ class Nytimes():
             search_date = search_date - timedelta(days=datetime.now().day)
 
         try:
-            print(act_on_element('//body[descendant::contains(text(),"ACCEPT")]', "find_element").text)
+            print(act_on_element('//body[descendant::contains(text(),"accept")]', "find_element").text)
             log_message("It's in a body")
         except:
             log_message("Didn't find pop-up")
