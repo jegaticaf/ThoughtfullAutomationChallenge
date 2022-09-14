@@ -1,7 +1,6 @@
-import shutil, time, os, sys
+import shutil, time, os
 from robot.api import logger
 from datetime import datetime, timedelta
-from RPA.Robocorp.Vault import Vault
 from RPA.Browser.Selenium import Selenium
 from RPA.Excel.Files import Files
 from RPA.FileSystem import FileSystem
