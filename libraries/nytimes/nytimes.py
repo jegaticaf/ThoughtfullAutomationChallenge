@@ -101,8 +101,11 @@ class Nytimes():
                 
         #Once it has loaded all the news in the given timeframe, checks the date individually
         #Appends all the articles that are between that timeframe
-        all_articles = act_on_element('//ol[@data-testid="search-results"]/li[@data-testid]', "find_elements")
-        size = len(all_articles)
+        size = 0
+        while size <1:
+            time.sleep(1)
+            all_articles = act_on_element('//ol[@data-testid="search-results"]/li[@data-testid]', "find_elements")
+            size = len(all_articles)
         
         articles_processed = 0
         continue_appending = True
