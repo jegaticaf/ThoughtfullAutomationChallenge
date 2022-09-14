@@ -3,7 +3,7 @@ from config import OUTPUT_FOLDER, search_phrase, month_number, news_section, tab
 import time
 from selenium.webdriver.common.keys import Keys
 from datetime import datetime, timedelta
-import selenium.webdriver
+from selenium.webdriver.common.by import by
 
 class Nytimes():
 
