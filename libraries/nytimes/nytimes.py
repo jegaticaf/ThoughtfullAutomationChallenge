@@ -118,7 +118,9 @@ class Nytimes():
             self.browser.click_element('//div[@data-testid="search-day-picker"]//div[text()="{}"]'.format(search_date.day)) 
         self.browser.input_text_when_element_is_visible('//div[@data-testid="search-day-picker"]//input[@data-testid="DateRange-endDate"]', search_date_end_value) 
         self.browser.click_element('//div[@data-testid="search-day-picker"]//div[text()="{}"]'.format(datetime.now().day)) 
-             
+        #This sleep is to make sure the filters update the site, and it loads only the correct information
+        time.sleep(1)
+        
         #Clicks the "Show more" button while it exists
         #Since we've already done the date filter, this will give us back all the results
         data_range = True
