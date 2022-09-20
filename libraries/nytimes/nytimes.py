@@ -59,13 +59,11 @@ class Nytimes():
             self.browser.click_element('//button[@data-testid="GDPR-accept"]')
             log_message("Clicked the accept button, if it is still there")
         except:
-            #In case the pop-up doesn't show up, keeps going
+            #In case the pop-up doesn't show up, sends the message and keeps going
             log_message("Didn't find the pop-up")  
 
         self.browser.click_element('//select[@data-testid="SearchForm-sortBy"]')
         self.browser.click_element('//option[@value="newest"]')
-        #This is to give it time to the website to load with the new filters
-        #time.sleep(1)
 
         log_message("End - Set the Filters")
 
@@ -132,17 +130,18 @@ class Nytimes():
                 #This is to make sure the "Search More" button has time to load
                 #time.sleep(1)
             except:
+                #Once the "Show more" button no longer exists, it changes the value
                 data_range = False
 
-            try:
-                #Once it has loaded all the news in the given timeframe, checks the date individually
-                #Appends all the articles that are between that timeframe
-                all_articles = self.browser.find_elements('//ol[@data-testid="search-results"]/li[@data-testid]')
-                #If this sleep is omited, the page will send a captcha to the Robot, and it will fail to return the data
-                time.sleep(1)
-            except:
-                #This means that there are no articles with this parameters
-                log_message("Found no articles with this filters")
+        try:
+            #Once it has loaded all the news in the given timeframe, checks the date individually
+            #Appends all the articles that are between that timeframe
+            all_articles = self.browser.find_elements('//ol[@data-testid="search-results"]/li[@data-testid]')
+            #If this sleep is omited, the page will send a captcha to the Robot, and it will fail to return the data
+            #time.sleep(1)
+        except:
+            #This means that there are no articles with this parameters
+            log_message("Found no articles with this filters")
         
         size = len(all_articles)
         log_message("Loaded {} articles".format(size))
