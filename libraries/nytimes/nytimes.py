@@ -126,9 +126,8 @@ class Nytimes():
         all_articles = ""
         while data_range:
             try:
+                #Clicks the "Show more" button while it exists
                 self.browser.click_element('//button[@data-testid="search-show-more-button"]')
-                #This is to make sure the "Search More" button has time to load
-                #time.sleep(1)
             except:
                 #Once the "Show more" button no longer exists, it changes the value
                 data_range = False
@@ -137,8 +136,6 @@ class Nytimes():
             #Once it has loaded all the news in the given timeframe, checks the date individually
             #Appends all the articles that are between that timeframe
             all_articles = self.browser.find_elements('//ol[@data-testid="search-results"]/li[@data-testid]')
-            #If this sleep is omited, the page will send a captcha to the Robot, and it will fail to return the data
-            #time.sleep(1)
         except:
             #This means that there are no articles with this parameters
             log_message("Found no articles with this filters")
@@ -211,6 +208,7 @@ class Nytimes():
                         float(number_after_sign)
                         has_money = True
                     except:
+                        #This means that, even if they found the keyword, it's not a number, so it shouldn't be counted
                         print("{} has '$' in the title, but it isn't a number".format(article_title))                    
                 if len(dollar_in_title) > 1 and has_money == False:
                     number_before_dollar = dollar_in_title[0].split(" ")
@@ -218,6 +216,7 @@ class Nytimes():
                         float(number_before_dollar[-1].replace(",", ""))
                         has_money = True
                     except:
+                        #This means that, even if they found the keyword, it's not a number, so it shouldn't be counted
                         print("{} has 'dollar' in the title, but it isn't a number".format(article_title)) 
                 if len(usd_in_title) > 1 and has_money == False:
                     number_before_usd = usd_in_title[1].split(" ")
@@ -225,6 +224,7 @@ class Nytimes():
                         float(number_before_usd[-1].replace(",", ""))
                         has_money = True
                     except:
+                        #This means that, even if they found the keyword, it's not a number, so it shouldn't be counted
                         print("{} has 'USD' in the title, but it isn't a number".format(article_title)) 
             elif money_in_description:
                 sign_in_description = article_description.split("$")
@@ -237,6 +237,7 @@ class Nytimes():
                         float(number_after_sign)
                         has_money = True
                     except:
+                        #This means that, even if they found the keyword, it's not a number, so it shouldn't be counted
                         print("{} has '$' in the description, but it isn't a number".format(article_title)) 
                 if len(dollar_in_description) > 1 and has_money == False:
                     number_before_dollar = dollar_in_description[0].split(" ")
@@ -244,6 +245,7 @@ class Nytimes():
                         float(number_before_dollar[-1].replace(",", ""))
                         has_money = True
                     except:
+                        #This means that, even if they found the keyword, it's not a number, so it shouldn't be counted
                         print("{} has 'dollar' in the description, but it isn't a number".format(article_title)) 
                 if len(usd_in_description) > 1 and has_money == False:
                     number_before_usd = usd_in_description[0].split(" ")
@@ -251,6 +253,7 @@ class Nytimes():
                         float(number_before_usd[-1].replace(",", ""))
                         has_money = True
                     except:
+                        #This means that, even if they found the keyword, it's not a number, so it shouldn't be counted
                         print("{} has 'USD' in the description, but it isn't a number".format(article_title)) 
 
             #Once it has all the information, opens the image in a new window and downloads it
