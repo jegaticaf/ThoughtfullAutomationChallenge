@@ -1,6 +1,6 @@
 from libraries.common import log_message, files, convert_string_to_date
 from config import OUTPUT_FOLDER, search_phrase, month_number, news_section, tabs_dict
-import os, time
+import os
 from selenium.webdriver.common.keys import Keys
 from datetime import datetime, timedelta
 
